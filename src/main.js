@@ -1,3 +1,4 @@
+import { returnResultsArray } from "./investmentCalculator";
 import { Chart } from "chart.js/auto";
 
 document.addEventListener("DOMContentLoaded", () => {
