@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Virtual Wallet</title>
+        <link rel="stylesheet" href="./src/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+        />
+    </head>
+    <body>
+        <main>
+            <section id="input-section">
+                <h1>Calculadora de investimentos</h1>
+                <div id="input-div">
+                    <label for="initial-investment-input"
+                        >Investimento inicial</label
+                    >
+                    <div id="initial-investment-div">
+                        <p>R$</p>
+                        <input
+                            type="number"
+                            name="initial-investment-input"
+                            id="initial-investment-input"
+                            placeholder="0.00"
+                        />
+                    </div>
+                    <label for="monthly-contribution-input"
+                        >Aporte mensal</label
+                    >
+                    <div id="monthly-contribution-div">
+                        <p>R$</p>
+                        <input
+                            type="number"
+                            name="monthly-contribution-input"
+                            id="monthly-contribution-input"
+                            placeholder="0.00"
+                        />
+                    </div>
+                    <label for="deadline-input">Prazo</label>
+                    <div id="deadline-div">
+                        <input
+                            type="number"
+                            name="deadline-input"
+                            id="deadline-input"
+                            placeholder="0"
+                        />
+                        <select name="deadline-options" id="deadline-options">
+                            <option value="monthly">mensal</option>
+                            <option value="yearly">anual</option>
+                        </select>
+                    </div>
+                    <label for="profitability-input">Rentabilidade</label>
+                    <div id="profitability-div">
+                        <p>%</p>
+                        <input
+                            type="number"
+                            name="profitability-input"
+                            id="profitability-input"
+                            placeholder="0.00"
+                            step="0.01"
+                        />
+                        <select
+                            name="profitability-options"
+                            id="profitability-options"
+                        >
+                            <option value="monthly">mensal</option>
+                            <option value="yearly">anual</option>
+                        </select>
+                    </div>
+                    <label for="profit-tax-input">Taxa sobre lucro</label>
+                    <div id="profit-tax-div">
+                        <p>%</p>
+                        <input
+                            type="number"
+                            name="profit-tax-input"
+                            id="profit-tax-input"
+                            placeholder="0.00"
+                            step="0.01"
+                        />
+                    </div>
+                </div>
+                <div id="buttons-div">
+                    <button id="calculate-button">Calcular</button>
+                    <button id="clear-button">Limpar</button>
+                </div>
+            </section>
+            <section id="overlay-section">
+                <button id="left-button">
+                    <i class="bi bi-chevron-double-left"></i>
+                </button>
+                <section id="results-section">
+                    <section id="final-result-section">
+                        <h2>Resultado final</h2>
+                    </section>
+                    <section id="progress-section">
+                        <h2>Progresso</h2>
+                    </section>
+                    <section id="table-section">
+                        <h2>Tabela</h2>
+                    </section>
+                </section>
+                <button id="right-button">
+                    <i class="bi bi-chevron-double-right"></i>
+                </button>
+            </section>
+        </main>
+        <script type="module" src="./src/main.js"></script>
+    </body>
+</html>

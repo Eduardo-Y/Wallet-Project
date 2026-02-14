@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+/jspm_packages/
+typings/
+
+# Optional npm cache files
+.npm/
+
+# Temporary files and directories
+.tmp/
+temp/
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# TypeScript files
+# If you are using TypeScript, you should ignore the generated JavaScript files
+# and source maps, typically in a 'dist' or 'build' directory.
+# This prevents checking in generated JS files when you only want to commit the TS sources.
+# e.g., if you compile to a 'build' directory:
+# build/
+# *.js
+# *.map
+
+# IDE/Editor specific files (Optional, adjust as needed)
+.vscode/        # VS Code
+.idea/          # WebStorm/IntelliJ
+.history/       # VS Code Local History
+*.sublime-project
+*.sublime-workspace
+.DS_Store       # macOS specific files
+
+# Testing and Coverage
+coverage/
+*.iml           # Intellij IDEA project file

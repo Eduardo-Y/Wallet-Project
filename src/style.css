@@ -1,0 +1,183 @@
+:root {
+    --primary-color: #2b2d42;
+    --lightest-primary: #8d99ae;
+    --secondary-color: #ccdae0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+p,
+label,
+button {
+    font-size: 1.8rem;
+}
+
+main {
+    min-height: 100svh;
+    display: grid;
+    grid-template-areas:
+        "a b b"
+        "a b b"
+        "a b b";
+    grid-template-columns: 1fr 2fr;
+
+    & #input-section {
+        grid-area: a;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        padding: 2rem 3rem;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+
+        & #input-div {
+            display: flex;
+            flex-flow: column;
+
+            & p {
+                display: inline-block;
+            }
+
+            & div {
+                width: 100%;
+                border: 0.1rem solid transparent;
+                border-radius: 0.8rem;
+                height: 3rem;
+                display: flex;
+                justify-content: space-between;
+
+                & *:first-child {
+                    border-top-left-radius: 0.6rem;
+                    border-bottom-left-radius: 0.6rem;
+                }
+
+                & * {
+                    border: none;
+                }
+
+                & p,
+                select {
+                    padding: 0 3rem;
+                    background-color: var(--secondary-color);
+                    color: var(--primary-color);
+                }
+
+                & input {
+                    padding: 0 1rem;
+                    width: 100%;
+                    outline: none;
+                }
+
+                & *:last-child {
+                    border-top-right-radius: 0.6rem;
+                    border-bottom-right-radius: 0.6rem;
+                }
+            }
+        }
+
+        & #buttons-div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding-bottom: 4rem;
+
+            & button {
+                border: 0.2rem solid var(--lightest-primary);
+                border-radius: 0.8rem;
+                width: 60%;
+                padding: 1rem;
+                font-weight: 600;
+            }
+
+            & #calculate-button {
+                background-color: var(--lightest-primary);
+                color: var(--primary-color);
+            }
+
+            & #clear-button {
+                background-color: transparent;
+                color: var(--lightest-primary);
+            }
+
+            & #clear-button:hover,
+            #calculate-button:hover {
+                background-color: rgba(152, 158, 170, 10%);
+                cursor: pointer;
+                color: var(--lightest-primary);
+            }
+        }
+    }
+
+    & #overlay-section {
+        grid-area: b;
+        display: grid;
+        overflow: scroll;
+
+        & button {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            padding: 2rem 0.5rem;
+            border: none;
+            background-color: transparent;
+        }
+
+        & button:hover {
+            border-radius: 1rem;
+            background-color: var(--primary-color);
+            color: var(--lightest-primary);
+            cursor: pointer;
+        }
+
+        & #left-button {
+            left: 34vw;
+        }
+
+        #right-button {
+            right: 2rem;
+        }
+
+        & #results-section {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            display: grid;
+            grid-template-areas:
+                "a a c"
+                "b b c";
+            place-items: center;
+            width: 200%;
+            grid-template-columns: repeat(2, 25%) 50%;
+            transition: all 0.3s;
+
+            & #final-result-section {
+                grid-area: a;
+            }
+
+            & #progress-section {
+                grid-area: b;
+            }
+
+            & #table-section {
+                grid-area: c;
+            }
+        }
+    }
+}
