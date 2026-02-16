@@ -10,26 +10,27 @@ export function returnResultsArray(
     const months = deadline * deadlinePeriod;
     profitability = profitability / 100;
     let results = [];
+    let returns = [];
 
     for (let i = 1; i <= months; i++) {
-        let monthValue = results[i - 2];
+        let monthValue;
+
         if (i == 1) monthValue = initialValue;
+        else monthValue = results[i - 2];
 
         let envestment = monthValue + monthlyContribution;
 
-        monthValue = envestment * (1 + profitability);
+        let monthReturn = envestment * profitability;
 
         if (profitabilityPeriod == "yearly" && i % 12 != 0) {
             monthValue = envestment;
         }
 
-        let profit = monthValue - envestment;
-        monthValue -= (profit * profitTax) / 100;
-
-        results.push(parseFloat(monthValue.toFixed(2)));
+        results.push(parseFloat(envestment.toFixed(2)));
+        returns.push(parseFloat(monthReturn.toFixed(2)));
     }
 
-    console.log(results);
+    return [results, returns];
 }
 
-returnResultsArray(1000, 100, 12, 1, 1, "monthly", 5);
+// console.log(returnResultsArray(1000, 100, 12, 1, 1, "monthly", 5));

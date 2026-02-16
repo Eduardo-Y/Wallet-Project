@@ -19,18 +19,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     $calculateButton.addEventListener("click", (e) => {
+        const results = returnResultsArray(1000, 100, 12, 1, 10, "monthly", 5);
+        const totalEnvested = results[0].reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0,
+        );
+        const totalReturned = results[1].reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0,
+        );
+        const profit = (totalEnvested + totalReturned) * 0.1;
+
+        console.log(totalEnvested, totalReturned);
+
         new Chart($doughnutChart, {
             type: "doughnut",
             data: {
-                labels: ["Red", "Blue", "Yellow"],
+                labels: ["Total investido", "retorno", "imposto"],
                 datasets: [
                     {
-                        label: "Resultado final",
-                        data: [300, 50, 100],
+                        data: [totalEnvested, totalReturned, profit],
                         backgroundColor: [
-                            "rgb(255, 99, 132)",
-                            "rgb(54, 162, 235)",
                             "rgb(255, 205, 86)",
+                            "rgb(54, 162, 235)",
+                            "rgb(255, 99, 132)",
                         ],
                         hoverOffset: 4,
                     },
@@ -39,25 +51,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         new Chart($lineChart, {
-            type: "line",
+            type: "bar",
             data: {
                 labels: [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
+                    "Jan",
+                    "Fev",
+                    "Mar",
+                    "Abr",
+                    "Mai",
+                    "Jun",
+                    "Jul",
+                    "Ago",
+                    "Set",
+                    "Out",
+                    "Nov",
+                    "Dez",
                 ],
                 datasets: [
                     {
-                        label: "My First Dataset",
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: true,
-                        borderColor: "rgb(75, 192, 192)",
-                        tension: 0.4,
+                        stack: 0,
+                        label: "Total investido",
+                        data: results[0],
+                        backgroundColor: "rgba(54, 162, 235)",
+                    },
+                    {
+                        stack: 0,
+                        label: "Retorno",
+                        data: results[1],
+                        backgroundColor: "rgba(255, 99, 132)",
                     },
                 ],
+            },
+            options: {
+                scales: {
+                    x: {
+                        stack: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
             },
         });
     });
